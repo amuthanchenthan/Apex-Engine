@@ -1,0 +1,207 @@
+/* ===========================
+   Login Page
+=========================== */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(59,130,246,.18),
+      transparent 35%),
+
+    radial-gradient(circle at bottom right,
+      rgba(6,182,212,.15),
+      transparent 30%),
+
+    #020617;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.login-card {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+/* ===========================
+   Left Panel
+=========================== */
+
+.left-panel {
+  min-height: 680px;
+
+  padding: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.left-panel p {
+  line-height: 1.8;
+}
+
+/* ===========================
+   Feature Cards
+=========================== */
+
+.feature-card {
+
+  transition: .3s;
+
+  cursor: default;
+
+}
+
+.feature-card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow: 0 10px 30px rgba(59,130,246,.15);
+
+}
+
+.feature-card h6 {
+
+  color: white;
+
+}
+
+.feature-card small {
+
+  display: block;
+
+  line-height: 1.5;
+
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.form-label {
+
+  color: white;
+
+  font-weight: 600;
+
+}
+
+.form-control {
+
+  height: 52px;
+
+  background: rgba(255,255,255,.05);
+
+  color: white;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+}
+
+.form-control::placeholder {
+
+  color: #94a3b8;
+
+}
+
+.form-control:focus {
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  border-color: #3b82f6;
+
+  box-shadow: 0 0 0 .2rem rgba(59,130,246,.2);
+
+}
+
+.input-group-text {
+
+  background: rgba(255,255,255,.05);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  color: #38bdf8;
+
+}
+
+.btn-outline-secondary {
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background: rgba(255,255,255,.05);
+
+  color: white;
+
+}
+
+.btn-outline-secondary:hover {
+
+  background: rgba(255,255,255,.12);
+
+  color: white;
+
+}
+
+.form-check-label {
+
+  color: #cbd5e1;
+
+}
+
+/* ===========================
+   Links
+=========================== */
+
+.login-page a {
+
+  color: #38bdf8;
+
+  text-decoration: none;
+
+}
+
+.login-page a:hover {
+
+  color: white;
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 992px) {
+
+  .left-panel {
+
+    min-height: auto;
+
+    padding: 40px;
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    text-align: center;
+
+  }
+
+  .feature-card {
+
+    text-align: left;
+
+  }
+
+}
