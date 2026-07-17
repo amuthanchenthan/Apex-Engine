@@ -1,17 +1,43 @@
 # Apex Engine
 
-Apex Engine is a Full-Stack Event-Driven Blockchain Strategy Execution Platform built using React, Express.js, MongoDB, and Ethereum Sepolia Testnet.
+A blockchain-based strategy automation platform built with the MERN stack and Ethereum.
+
+## Features
+
+- User Authentication
+- Wallet Connection
+- Strategy Creation
+- Automatic BUY/SELL Execution
+- Manual Execution
+- Execution History
+- Profit & ROI Tracking
+- Strategy Analytics
+- Archive & Delete Strategies
+- Smart Contract Integration
 
 ## Tech Stack
 
 - React
+- Node.js
 - Express.js
-- MongoDB Atlas
-- Ethereum Sepolia
-- ethers.js
-- Socket.IO
-- JWT Authentication
+- MongoDB
+- Solidity
+- Hardhat
+- Ethers.js
+- Recharts
 
-## Status
+## Screenshots
 
-🚧 Under Development
+(Add screenshots here)
+
+## Installation
+
+### Backend
+
+npm install
+npm start
+
+### Frontend
+
+npm install
+npm run dev
