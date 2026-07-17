@@ -1,36 +1,42 @@
 import {
   Wallet,
-  Activity,
   Cpu,
-  BarChart3,
+  Activity,
+  ShieldCheck,
 } from "lucide-react";
 
-function StatsCards({wallet}) {
+function StatsCards({ wallet, strategyCount }) {
+
   const cards = [
+
     {
       title: "Wallet",
       value: wallet.connected ? "Connected" : "Disconnected",
-
       icon: <Wallet size={28} />,
     },
+
     {
       title: "Strategies",
-      value: "0",
+      value: strategyCount,
       icon: <Cpu size={28} />,
     },
+
     {
-      title: "Transactions",
-      value: "0",
+      title: "Network",
+      value: wallet.network || "--",
       icon: <Activity size={28} />,
     },
+
     {
-      title: "Analytics",
-      value: "Coming Soon",
-      icon: <BarChart3 size={28} />,
+      title: "Contract",
+      value: "Active",
+      icon: <ShieldCheck size={28} />,
     },
+
   ];
 
   return (
+
     <div className="stats-grid">
 
       {cards.map((card) => (
@@ -41,9 +47,7 @@ function StatsCards({wallet}) {
         >
 
           <div className="stats-icon">
-
             {card.icon}
-
           </div>
 
           <h3>{card.value}</h3>
@@ -55,7 +59,9 @@ function StatsCards({wallet}) {
       ))}
 
     </div>
+
   );
+
 }
 
 export default StatsCards;

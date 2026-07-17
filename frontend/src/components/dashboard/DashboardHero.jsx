@@ -1,10 +1,15 @@
 import { Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-function DashboardHero({ user }) {
+function DashboardHero({ user, strategyCount = 0, activeStrategies = 0 }) {
+
+  const navigate = useNavigate();
+
   return (
     <section className="dashboard-hero">
 
       {/* Left Side */}
+
       <div className="hero-content">
 
         <p className="hero-tag">
@@ -22,7 +27,10 @@ function DashboardHero({ user }) {
 
         <div className="hero-buttons">
 
-          <button className="btn btn-primary">
+          <button
+            className="btn btn-primary"
+            onClick={() => navigate("/strategies")}
+          >
             <Zap size={18} className="me-2" />
             Create Strategy
           </button>
@@ -32,6 +40,7 @@ function DashboardHero({ user }) {
       </div>
 
       {/* Right Side */}
+
       <div className="hero-card">
 
         <div className="hero-status">
@@ -52,18 +61,27 @@ function DashboardHero({ user }) {
         <div className="hero-stats">
 
           <div>
-            <h3>0</h3>
+
+            <h3>{strategyCount}</h3>
+
             <p>Strategies</p>
+
           </div>
 
           <div>
-            <h3>0</h3>
+
+            <h3>{strategyCount}</h3>
+
             <p>Transactions</p>
+
           </div>
 
           <div>
-            <h3>0</h3>
-            <p>Automations</p>
+
+            <h3>{activeStrategies}</h3>
+
+            <p>Active</p>
+
           </div>
 
         </div>
@@ -72,6 +90,7 @@ function DashboardHero({ user }) {
 
     </section>
   );
+
 }
 
 export default DashboardHero;

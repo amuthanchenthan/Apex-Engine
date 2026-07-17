@@ -70,6 +70,11 @@ const userSchema = new mongoose.Schema(
       type: walletSchema,
       default: () => ({}),
     },
+    strategyStages: {
+      type: Map,
+      of: String,
+      default: {},
+    },
 
     role: {
       type: String,

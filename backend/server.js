@@ -19,6 +19,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/wallet", walletRoutes);
+import executionRoutes from "./routes/executionRoutes.js";
+app.use("/api/executions", executionRoutes);
+import strategyStageRoutes from "./routes/strategyStageRoutes.js";
+app.use("/api/stages", strategyStageRoutes);
 
 // Test Route
 app.get("/", (req, res) => {

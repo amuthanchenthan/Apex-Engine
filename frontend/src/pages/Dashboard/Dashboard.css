@@ -248,7 +248,7 @@
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:flex-end;
 
     align-items:center;
 
@@ -673,5 +673,62 @@ flex-direction:column;
 .sidebar-footer{
 
     margin-top:30px;
+
+}
+.quick-action-full{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    margin-top:30px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    background:#111d36;
+}
+
+.quick-icon{
+    color:#4d8cff;
+}
+
+.quick-action-full h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+.quick-action-full p{
+    color:#9ca8c4;
+    max-width:520px;
+    margin-bottom:20px;
+}
+
+.open-strategy-btn{
+
+    display:inline-block;
+
+    background:#3b82f6;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.open-strategy-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
 
 }

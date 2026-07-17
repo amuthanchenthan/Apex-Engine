@@ -1,35 +1,28 @@
-import { Bell, Search } from "lucide-react";
+import { Bell } from "lucide-react";
 
 function TopNavbar({ user }) {
-  return (
-    <header className="top-navbar">
 
-      <div className="search-box">
+    return (
 
-        <Search size={18} />
+        <header className="top-navbar">
 
-        <input
-          type="text"
-          placeholder="Search..."
-        />
+            <div className="navbar-right">
 
-      </div>
+                <Bell className="notification-icon" />
 
-      <div className="navbar-right">
+                <div className="user-avatar">
 
-        <Bell className="notification-icon" />
+                    {user?.firstName?.charAt(0)}
+                    {user?.lastName?.charAt(0)}
 
-        <div className="user-avatar">
+                </div>
 
-          {user?.firstName?.charAt(0)}
-          {user?.lastName?.charAt(0)}
+            </div>
 
-        </div>
+        </header>
 
-      </div>
+    );
 
-    </header>
-  );
 }
 
 export default TopNavbar;

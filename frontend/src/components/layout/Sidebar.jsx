@@ -1,16 +1,17 @@
 import {
   LayoutDashboard,
   Wallet,
-  Bot,
   Zap,
   BarChart3,
-  Settings,
   LogOut,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar({ onLogout }) {
+
+  const location = useLocation();
+
   const menu = [
     {
       title: "Dashboard",
@@ -20,27 +21,17 @@ function Sidebar({ onLogout }) {
     {
       title: "Wallet",
       icon: <Wallet size={20} />,
-      path: "/dashboard",
-    },
-    {
-      title: "AI Assistant",
-      icon: <Bot size={20} />,
-      path: "/dashboard",
+      path: "/wallet",
     },
     {
       title: "Strategies",
       icon: <Zap size={20} />,
-      path: "/dashboard",
+      path: "/strategies",
     },
     {
       title: "Analytics",
       icon: <BarChart3 size={20} />,
-      path: "/dashboard",
-    },
-    {
-      title: "Settings",
-      icon: <Settings size={20} />,
-      path: "/dashboard",
+      path: "/analytics",
     },
   ];
 
@@ -67,7 +58,7 @@ function Sidebar({ onLogout }) {
               key={item.title}
               to={item.path}
               className={`menu-item ${
-                item.title === "Dashboard" ? "active" : ""
+                location.pathname === item.path ? "active" : ""
               }`}
             >
               <div className="menu-icon">
@@ -90,16 +81,15 @@ function Sidebar({ onLogout }) {
           className="logout-btn"
           onClick={onLogout}
         >
-          <LogOut size={18} />
-
+          <LogOut size={18}/>
           <span>Logout</span>
-
         </button>
 
       </div>
 
     </aside>
   );
+
 }
 
 export default Sidebar;

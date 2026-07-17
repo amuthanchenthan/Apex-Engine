@@ -7,8 +7,10 @@ import TopNavbar from "../../components/layout/TopNavbar";
 import DashboardHero from "../../components/dashboard/DashboardHero";
 import StatsCards from "../../components/dashboard/StatsCards";
 import WalletCard from "../../components/dashboard/WalletCard";
-import QuickActions from "../../components/dashboard/QuickActions";
 import RecentActivity from "../../components/dashboard/RecentActivity";
+import MarketWidget from "../../components/dashboard/MarketWidget";
+
+import { getContract } from "../../blockchain/contract";
 
 import {
   connectWallet,
@@ -40,6 +42,43 @@ function Dashboard() {
 
   const [loadingWallet, setLoadingWallet] = useState(false);
 
+  // Dashboard Statistics
+  const [stats, setStats] = useState({
+    totalStrategies: 0,
+    activeStrategies: 0,
+  });
+
+  /* ==========================================
+      Load Strategy Statistics
+  ========================================== */
+
+  const loadStats = async () => {
+
+    try {
+
+      const contract = await getContract();
+
+      const data = await contract.getMyStrategies();
+
+      const total = data.length;
+
+      const active = data.filter((s) => s.active).length;
+
+      setStats({
+        totalStrategies: total,
+        activeStrategies: active,
+      });
+
+    }
+
+    catch (err) {
+
+      console.log(err);
+
+    }
+
+  };
+
   /* ==========================================
       Check Wallet On Page Load
   ========================================== */
@@ -50,24 +89,11 @@ function Dashboard() {
 
       try {
 
-        /* -----------------------------
-            Wallet stored in MongoDB
-        ------------------------------ */
-
         const dbResponse = await getWallet();
 
         const savedWallet = dbResponse.wallet;
 
-        /* -----------------------------
-            Wallet currently open
-            in MetaMask
-        ------------------------------ */
-
         const metamaskWallet = await getCurrentWallet();
-
-        /*
-            No wallet stored
-        */
 
         if (!savedWallet?.connected) {
 
@@ -82,10 +108,6 @@ function Dashboard() {
           return;
 
         }
-
-        /*
-            User disconnected MetaMask
-        */
 
         if (!metamaskWallet) {
 
@@ -103,13 +125,12 @@ function Dashboard() {
 
         }
 
-        /*
-            Wrong wallet opened
-        */
-
         if (
+
           metamaskWallet.address.toLowerCase() !==
+
           savedWallet.address.toLowerCase()
+
         ) {
 
           alert(
@@ -132,10 +153,6 @@ function Dashboard() {
 
         }
 
-        /*
-            Correct wallet
-        */
-
         setWallet({
 
           ...savedWallet,
@@ -155,6 +172,8 @@ function Dashboard() {
     };
 
     initializeWallet();
+
+    loadStats();
 
   }, []);
 
@@ -183,6 +202,8 @@ function Dashboard() {
       setWallet(response.wallet);
 
       localStorage.setItem("walletConnected", "true");
+
+      await loadStats();
 
     }
 
@@ -228,6 +249,14 @@ function Dashboard() {
 
       });
 
+      setStats({
+
+        totalStrategies: 0,
+
+        activeStrategies: 0,
+
+      });
+
     }
 
     catch (error) {
@@ -265,32 +294,30 @@ function Dashboard() {
         <TopNavbar
           user={user}
           wallet={wallet}
+          showSearch={true}
         />
 
         <DashboardHero
           user={user}
-          wallet={wallet}
+          strategyCount={stats.totalStrategies}
+          activeStrategies={stats.activeStrategies}
         />
 
         <StatsCards
           wallet={wallet}
+          strategyCount={stats.totalStrategies}
         />
 
         <div className="dashboard-grid">
 
           <WalletCard
-
             wallet={wallet}
-
             loading={loadingWallet}
-
             connectWallet={handleConnectWallet}
-
             disconnectWallet={handleDisconnectWallet}
-
           />
 
-          <QuickActions />
+          <MarketWidget />
 
         </div>
 
