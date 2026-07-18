@@ -5,7 +5,7 @@ import axios from "axios";
 ========================================== */
 
 const API = axios.create({
-  baseURL: "http://apex-engine-backend.onrender.com/api/wallet",
+  baseURL: "https://apex-engine-backend.onrender.com/api/wallet",
 });
 
 /* ==========================================
