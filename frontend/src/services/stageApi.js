@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/stages";
+const API = "http://apex-engine-backend.onrender.com/api/stages";
 
 const token = () => ({
     headers: {

@@ -7,7 +7,7 @@ import walletRoutes from "./routes/walletRoutes.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
-console.log(process.env.MONGO_URI);
+//console.log(process.env.MONGO_URI);
 
 const app = express();
 
