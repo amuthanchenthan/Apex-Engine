@@ -5,6 +5,7 @@ import {
   Wifi,
   Cpu
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Hero({ showPlatform, platformVisible }) {
   return (
@@ -42,15 +43,13 @@ function Hero({ showPlatform, platformVisible }) {
 
             </button>
 
-            <button
+            <Link
+              to="/dashboard"
               className="btn btn-outline-light secondary-btn d-flex align-items-center gap-2"
-              disabled
             >
               <Rocket size={20} />
-
-              Launch Console
-
-            </button>
+              Launch Dashboard
+            </Link>
 
           </div>
 

@@ -36,9 +36,8 @@ function Footer() {
 
             <p className="text-secondary mb-4">
 
-              A modern full-stack blockchain automation platform built with
-              React, Node.js, Express, MongoDB Atlas and Ethereum Sepolia.
-
+            A modern full-stack blockchain strategy automation platform for creating, 
+            executing, and monitoring cryptocurrency trading strategies with real-time analytics. 
             </p>
 
             <small className="text-secondary">
